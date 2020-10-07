@@ -1,5 +1,5 @@
 ======================
-ckanext-datatablesview
+ckanext-tableview
 ======================
 
 .. Put a description of your extension here:
@@ -23,13 +23,13 @@ Installation
    For example installing any non-Python dependencies or adding any required
    config settings.
 
-To install ckanext-datatablesview:
+To install ckanext-tableview:
 
 1. Activate your CKAN virtual environment, for example::
 
      . /usr/lib/ckan/default/bin/activate
 
-2. Clone repository and install the ckanext-datatablesview Python package into your virtual environment::
+2. Clone repository and install the ckanext-tableview Python package into your virtual environment::
 
      python setup.py install
 
@@ -46,9 +46,9 @@ To install ckanext-datatablesview:
 Development Installation
 ------------------------
 
-To install ckanext-datatablesview for development, activate your CKAN virtualenv and
+To install ckanext-tableview for development, activate your CKAN virtualenv and
 do::
 
-    git clone https://github.com/justicehub-in/ckanext-datatablesview.git
-    cd ckanext-datatablesview
+    git clone https://github.com/justicehub-in/ckanext-tableview.git
+    cd ckanext-tableview
     python setup.py develop
