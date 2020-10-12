@@ -42,6 +42,14 @@ To install ckanext-tableview:
      sudo service apache2 reload
 
 
+-------------
+Configuration
+-------------
+
+ckanext-tableview has inbuilt themes integrated. To use one, add ``justicehub_theme`` to the ``ckan.tableview_theme`` settings in
+your CKAN config file. If not provided, then it will take default theme. In case if theme is not found, then it will
+show: "Internal Server Error" in views section
+
 ------------------------
 Development Installation
 ------------------------
