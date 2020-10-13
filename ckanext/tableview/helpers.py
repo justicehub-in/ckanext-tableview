@@ -19,5 +19,4 @@ def tableview_theme():
     Return tableview theme string from config file
     """
     theme = config.get("ckan.tableview_theme")
-    print("Theme =", theme)
-    return theme if theme else "default_theme"
+    return theme if theme else str(theme)

@@ -45,7 +45,11 @@
   </table>
 
   {% resource 'tableview/main' %}
-  {% resource 'tableview/' + h.tableview_theme() %}
+
+  {% set theme_value = h.tableview_theme() %}
+  {% if theme_value != 'None' %}
+    {% resource 'tableview/' + theme_value %}
+  {% endif %}
 {% endblock %}
 
 {% block styles %}{% endblock %}
