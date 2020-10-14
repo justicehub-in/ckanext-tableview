@@ -39,10 +39,6 @@ div.dataTables_wrapper div.dataTables_info {
     border: 0 !important;
 }
 
-.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
-    line-height: 2.42857143 !important;
-}
-
 .dropdown-menu {
   background-color: #423643 !important;
   margin: -2px 1px !important;
@@ -58,7 +54,9 @@ div.dataTables_wrapper div.dataTables_info {
 }
 
 #dtprv_length {
-  padding-top: 20px;
+  position: absolute;
+  right: 0;
+  margin: 20px;
 }
 
 .dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
