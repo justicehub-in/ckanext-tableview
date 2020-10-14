@@ -1,0 +1,93 @@
+.dataTables_wrapper {
+  margin: 2%;
+}
+
+.DTFC_LeftHeadWrapper {
+    border-bottom: 2px solid black !important;
+}
+
+div.dataTables_scrollBody > table {
+    border-bottom: 2px solid black !important;
+}
+
+div.dataTables_scrollHead table.table-bordered {
+    border-bottom: 2px solid black !important;
+}
+
+div.dataTables_wrapper div.dataTables_paginate {
+    margin: 20px 0 !important;
+    text-align: left !important;
+}
+
+div.dataTables_wrapper div.dataTables_filter {
+    text-align: left !important;
+}
+
+#dtprv_info {
+  display: none;
+}
+
+div.dataTables_wrapper div.dataTables_info {
+    font-size: 11px;
+}
+
+.table-bordered > thead > tr > th, .table-bordered > tbody > tr > th, .table-bordered > tfoot > tr > th, .table-bordered > thead > tr > td, .table-bordered > tbody > tr > td, .table-bordered > tfoot > tr > td {
+  border: 0 !important;
+}
+
+.table-bordered {
+    border: 0 !important;
+}
+
+.dropdown-menu {
+  background-color: #423643 !important;
+  margin: -2px 1px !important;
+  color: white !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+}
+
+.buttons-colvis {
+    background-color: #423643 !important;
+    color: white !important;
+    border-color: none !important;
+}
+
+#dtprv_length {
+  position: absolute;
+  right: 0;
+  margin: 20px;
+}
+
+.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
+    background-color: #423643 !important;
+    color: white !important;
+}
+
+.dropdown-menu > li > a {
+    color: gray !important;
+}
+
+.pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
+    border-color: #423643 !important;
+    background-color: #423643 !important;
+    color: white !important;
+}
+
+.pagination > li > a, .pagination > li > span {
+    color: #423643 !important;
+}
+
+tbody tr:hover {
+      background-color: #a9b7d1 !important; }
+
+.DTFC_Cloned {
+  width: 95% !important;
+}
+
+.dt-buttons {
+  position: absolute !important;
+  top: 0;
+  right: 0;
+  padding: 20px;
+}

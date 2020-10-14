@@ -48,6 +48,7 @@ class TableView(p.SingletonPlugin):
         from ckanext.tableview import helpers as datatablesview_helpers
         return {
                 'tableview_datastore_dictionary': datatablesview_helpers.tableview_datastore_dictionary,
+                'tableview_theme': datatablesview_helpers.tableview_theme
                 }
 
     def info(self):

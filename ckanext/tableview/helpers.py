@@ -1,4 +1,4 @@
-from ckan.plugins.toolkit import get_action, ObjectNotFound, NotAuthorized
+from ckan.plugins.toolkit import get_action, ObjectNotFound, NotAuthorized, config
 
 
 def tableview_datastore_dictionary(resource_id):
@@ -12,3 +12,11 @@ def tableview_datastore_dictionary(resource_id):
             if not f['id'].startswith(u'_')]
     except (ObjectNotFound, NotAuthorized):
         return []
+
+
+def tableview_theme():
+    """
+    Return tableview theme string from config file
+    """
+    theme = config.get("ckan.tableview_theme")
+    return theme if theme else str(theme)

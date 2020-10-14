@@ -21,7 +21,7 @@
       {% endif %}
       data-fixed-header="true"
       data-fixed-columns="true"
-      data-dom='"Blifrtip"'
+      data-dom='"RfBirtilp"'
       data-buttons='[
         {
           "extend": "colvis",
@@ -45,6 +45,11 @@
   </table>
 
   {% resource 'tableview/main' %}
+
+  {% set theme_value = h.tableview_theme() %}
+  {% if theme_value != 'None' %}
+    {% resource 'tableview/' + theme_value %}
+  {% endif %}
 {% endblock %}
 
 {% block styles %}{% endblock %}
