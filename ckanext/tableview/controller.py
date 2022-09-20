@@ -3,6 +3,11 @@
 import json
 from six import text_type
 from ckan.plugins.toolkit import BaseController, get_action, request
+import pandas as pd
+import logging
+import io
+import requests
+log = logging.getLogger(__name__)
 
 
 class TableViewController(BaseController):
@@ -11,7 +16,7 @@ class TableViewController(BaseController):
             None, {u'id': resource_view_id})
 
         draw = int(request.params['draw'])
-        search_text = text_type(request.params['search[value]'])
+        '''search_text = text_type(request.params['search[value]'])
         offset = int(request.params['start'])
         limit = int(request.params['length'])
         view_filters = resource_view.get(u'filters', {})
@@ -51,14 +56,29 @@ class TableViewController(BaseController):
         })
 
         return json.dumps({
-            u'draw': draw,
-            u'iTotalRecords': unfiltered_response.get(u'total', 0),
-            u'iTotalDisplayRecords': response.get(u'total', 0),
-            u'aaData': [
+            #u'draw': draw,
+            #u'iTotalRecords': unfiltered_response.get(u'total', 0),
+            #u'iTotalDisplayRecords': response.get(u'total', 0),
+            u'aaData': [["a", "b"], [1, 34]],  [
                 [text_type(row.get(colname, u'')) for colname in cols]
                 for row in response['records']
             ],
-        })
+        })'''
+        url = 'https://openbudgetsindia.org/dataset/' + str(resource_view[u'package_id']) + "/resource/" + str(resource_view[u'resource_id']) + "/download/data.csv"
+        log.error(url)
+        log.error('----------------------------------------------------------------------------------------end')
+        s = requests.get(url).content
+        log.error(s)
+        data = pd.read_csv(io.StringIO(s.decode('utf-8')), header=0).fillna('')
+        #log.error(data)
+        cols = list(data.columns)
+        data_val = data.values.tolist()
+        #data_val.insert(0, cols) 
+        return json.dumps({u'draw': draw,
+         u'iTotalRecords': len(data),
+         u'iTotalDisplayRecords': len(data),   
+         u'aaData':data_val, 
+          })
 
 
 def merge_filters(view_filters, user_filters_str):

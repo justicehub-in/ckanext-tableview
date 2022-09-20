@@ -36,7 +36,8 @@ class TableView(p.SingletonPlugin):
 
     def can_view(self, data_dict):
         resource = data_dict['resource']
-        return resource.get(u'datastore_active')
+        return True #(resource.get(u'datastore_active') or
+                     #  '_datastore_only_resource' in resource.get('url', ''))
 
     def view_template(self, context, data_dict):
         return u'datatables_view.html'
@@ -48,7 +49,8 @@ class TableView(p.SingletonPlugin):
         from ckanext.tableview import helpers as datatablesview_helpers
         return {
                 'tableview_datastore_dictionary': datatablesview_helpers.tableview_datastore_dictionary,
-                'tableview_theme': datatablesview_helpers.tableview_theme
+                'tableview_theme': datatablesview_helpers.tableview_theme,
+                'tableview_cols' : datatablesview_helpers.tableview_cols
                 }
 
     def info(self):
@@ -57,7 +59,7 @@ class TableView(p.SingletonPlugin):
             u'title': u'Table',
             u'filterable': True,
             u'icon': u'table',
-            u'requires_datastore': True,
+            u'requires_datastore': False,
             u'default_title': p.toolkit._(u'Table'),
             u'schema': {
                 u'responsive': [default(False), boolean_validator],
