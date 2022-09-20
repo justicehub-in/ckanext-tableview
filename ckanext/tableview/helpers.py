@@ -4,7 +4,9 @@ from pylons import config
 import pandas as pd
 import requests
 import io
+import logging
 
+log = logging.getLogger(__name__)
 
 def tableview_datastore_dictionary(resource_id):
     """
@@ -30,7 +32,8 @@ def tableview_theme():
 
 def tableview_cols(pkg, res):
     url = 'https://openbudgetsindia.org/dataset/' + str(pkg) + "/resource/" + str(res) + "/download/data.csv"  
-    s = requests.get(url).content 
+    s = requests.get(url).content
+    log.error(s) 
     data = pd.read_csv(io.StringIO(s.decode('utf-8')), header=0).fillna('')
     cols = list(data.columns)  
     return cols
