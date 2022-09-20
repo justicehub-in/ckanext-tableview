@@ -15,8 +15,8 @@ class TableViewController(BaseController):
         resource_view = get_action(u'resource_view_show')(
             None, {u'id': resource_view_id})
 
-        draw = int(request.params['draw'])
-        '''search_text = text_type(request.params['search[value]'])
+        '''draw = int(request.params['draw'])
+        search_text = text_type(request.params['search[value]'])
         offset = int(request.params['start'])
         limit = int(request.params['length'])
         view_filters = resource_view.get(u'filters', {})
@@ -74,7 +74,7 @@ class TableViewController(BaseController):
         cols = list(data.columns)
         data_val = data.values.tolist()
         #data_val.insert(0, cols) 
-        return json.dumps({u'draw': draw,
+        return json.dumps({
          u'iTotalRecords': len(data),
          u'iTotalDisplayRecords': len(data),   
          u'aaData':data_val, 
