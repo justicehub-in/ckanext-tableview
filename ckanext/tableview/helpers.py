@@ -34,6 +34,6 @@ def tableview_cols(pkg, res):
     url = 'https://openbudgetsindia.org/dataset/' + str(pkg) + "/resource/" + str(res) + "/download/data.csv"  
     s = requests.get(url).content
     log.error(s) 
-    data = pd.read_csv(io.StringIO(s.decode('utf-8')), header=0).fillna('')
+    data = pd.read_csv(io.StringIO(s.decode('utf-8', errors="ignore")), header=0).fillna('')
     cols = list(data.columns)  
     return cols

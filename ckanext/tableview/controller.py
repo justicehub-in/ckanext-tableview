@@ -69,7 +69,7 @@ class TableViewController(BaseController):
         log.error('----------------------------------------------------------------------------------------end')
         s = requests.get(url).content
         log.error(s)
-        data = pd.read_csv(io.StringIO(s.decode('utf-8')), header=0).dropna(how='all').fillna('')
+        data = pd.read_csv(io.StringIO(s.decode('utf-8', errors="ignore")), header=0).dropna(how='all').fillna('')
         log.error(data)
         #log.error(data)
         cols = list(data.columns)
